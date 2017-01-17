@@ -1,0 +1,6 @@
+<h1><%= @article.title %></h1>
+<% unless @article.author_name.nil? %>
+	<h3><%= @article.author_name %></h3>
+<% end %>
+<h4><%= @article.created_at %></h4>
+<p><%= @article.content %></p>

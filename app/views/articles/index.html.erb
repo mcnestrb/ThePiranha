@@ -1,2 +1,7 @@
-<h1>Hello</h1>
-<p>Test page</p>
+<% unless @articles.empty? %>
+	<% @articles.each do |article| %>
+		<h2><%= link_to article.title, article_path %></h2>
+	<% end %>
+<% else %>
+	<h1>No articles</h1>
+<% end %>
