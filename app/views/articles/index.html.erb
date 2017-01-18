@@ -1,6 +1,6 @@
 <% unless @articles.empty? %>
 	<% @articles.each do |article| %>
-		<h2><%= link_to article.title, article_path %></h2>
+		<h2><%= link_to article.title, article_path(article) %></h2>
 	<% end %>
 <% else %>
 	<h1>No articles</h1>
