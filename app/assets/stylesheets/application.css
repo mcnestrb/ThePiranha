@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+/*
+	Page Header
+*/
+div.page_header {
+	height: 80px;
+	border-bottom: solid 3px black;
+}
+
+.page_header ul {
+	float: right;
+	margin-top: 35px;
+	margin-right: 5%;
+}
+
+.page_header ul li {
+	list-style: none;
+  display: inline;
+	margin-right: 30px;
+}
+
+.page_header ul li a {
+	text-decoration: none;
+}
+
+.page_header .piranha_title {
+	float: left;
+}
+
+.page_footer {
+	margin-top: 25px;
+	border-top: solid 3px black;
+	height: 80;
+	text-align: center;
+}
+
+.page_footer ul li {
+	list-style: none;
+	display: inline;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+
+.page_footer ul li a {
+	text-decoration: none;
+}
