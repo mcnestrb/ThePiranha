@@ -9,10 +9,11 @@
 
 		<div class="col-md-1 col-lg-1"></div>
 
-		<div class="col-md-9 col-lg-9 article">
+		<div class="col-md-8 col-lg-8 article">
 			<h1 class="article-title"><%= @article.title %></h1>
-			<p class="article-content"><%= @article.content %></p>
+			<div class="article-content"><%= simple_format(@article.content) %></div>
 		</div>
-
+		
+		<div class="col-md-1 col-lg-1"></div>
 	</div>
 </div>
