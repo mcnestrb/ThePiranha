@@ -29,7 +29,8 @@
 
 	<p>
 		<br>
-		<%= f.submit class: 'btn btn-success' %>
+		<%= f.submit "Save Draft", class: 'btn btn-primary' %>
+		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
 	</p>
 
 <% end %>
