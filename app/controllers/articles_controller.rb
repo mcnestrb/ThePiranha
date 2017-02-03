@@ -22,6 +22,14 @@ class ArticlesController < ApplicationController
 			else
 				render 'new'
 			end
+		elsif params[:commit] == 'Save Draft'
+			@draft = Draft.new(article_params)
+
+			if @draft.save
+			  redirect_to edit_draft_path(@draft)
+			else
+				render 'new'
+			end
 		end
 	end
 

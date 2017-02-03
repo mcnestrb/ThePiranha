@@ -1,0 +1,7 @@
+<% unless @drafts.empty? %>
+	<% @drafts.each do |draft| %>
+		<h2><%= link_to draft.title, edit_draft_path(draft) %></h2>
+	<% end %>
+<% else %>
+	<h1>No drafts</h1>
+<% end %>

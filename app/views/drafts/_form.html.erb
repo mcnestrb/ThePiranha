@@ -1,0 +1,36 @@
+<%= form_for @draft, html: { multipart: true } do |f| %>
+	<% if @draft.errors.any? %>
+		<div class="error_explanation">
+			<h2>
+				<%= pluralize(@draft.errors.count, "error") %> prohibited this article from being saved:
+			</h2>
+			<ul>
+				<% @draft.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<p>
+		<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true' %>
+	</p>
+
+	<p>
+		<%= f.text_area :content, placeholder: 'Article content...', rows: '15' %>
+	</p>
+
+	<%= f.label(:photo, 'Add Photo') %><br>
+	<div class="draft-photo-input">
+		<div class="wrapper">
+			<%= f.file_field :photo %>
+		</div>
+		<%= image_tag('camera.png', class: 'camera-icon') %>
+	</div>
+
+	<p>
+		<br>
+		<%= f.submit "Update Draft", class: 'btn btn-primary' %>
+		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
+	</p>
+
+<% end %>
