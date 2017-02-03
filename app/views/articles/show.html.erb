@@ -1,4 +1,16 @@
 <div class="container">
+	<% if admin_signed_in? %>
+		<div class="row">
+			<div class="col-md-3 col-lg-3"></div>
+			<div class="col-md-8 col-lg-8 article-edit-buttons">
+				<%= button_to("Delete", { action: 'destroy', id: @article.id },
+												method: :destroy, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger delete-button') %>
+				<%= button_to("Edit", { action: 'edit', id: @article.id }, method: :get, class: 'btn btn-primary edit-button') %>
+			</div>
+			<div class="col-md-1 col-lg-1"></div>
+		</div>
+	<% end %>
+
 	<div class="row">
 		<div class="col-md-12 col-lg-12">
 			<h1 class="article-title"><%= @article.title %></h1>
