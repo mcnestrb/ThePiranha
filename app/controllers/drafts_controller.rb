@@ -22,6 +22,10 @@ class DraftsController < ApplicationController
 			@draft = Draft.find(params[:id])
 			@article = Article.new(draft_params)
 
+			if @draft.photo.exists?
+				@article.photo = @draft.photo
+			end
+
 			if @article.save
 				@draft.destroy
 			  redirect_to @article

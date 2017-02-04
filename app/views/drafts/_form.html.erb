@@ -11,6 +11,13 @@
 			</ul>
 		</div>
 	<% end %>
+
+	<% unless @draft.photo.url.blank? %>
+		<p>
+			<%= image_tag(@draft.photo.url) %>
+		</p>
+	<% end %>
+
 	<p>
 		<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true' %>
 	</p>

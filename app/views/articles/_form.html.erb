@@ -11,6 +11,13 @@
 			</ul>
 		</div>
 	<% end %>
+
+	<% unless @article.photo.url.blank? %>
+		<p>
+			<%= image_tag(@article.photo.url) %>
+		</p>
+	<% end %>
+
 	<p>
 		<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true' %>
 	</p>
@@ -29,7 +36,9 @@
 
 	<p>
 		<br>
-		<%= f.submit "Save Draft", class: 'btn btn-primary' %>
+		<% if current_page?(action: 'new', controller: 'articles') %>
+			<%= f.submit "Save Draft", class: 'btn btn-primary' %>
+		<% end %>
 		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
 	</p>
 
