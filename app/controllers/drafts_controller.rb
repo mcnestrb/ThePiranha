@@ -10,12 +10,25 @@ class DraftsController < ApplicationController
 	end
 
 	def update
-		@draft = Draft.find(params[:id])
+		if params[:commit] == 'Update Draft'
+			@draft = Draft.find(params[:id])
 
-		if @draft.update(draft_params)
-			redirect_to edit_draft_path(@draft)
-		else
-			render 'edit'
+			if @draft.update(draft_params)
+				redirect_to edit_draft_path(@draft)
+			else
+				render 'edit'
+			end
+		elsif params[:commit] == 'Publish'
+			@draft = Draft.find(params[:id])
+			@article = Article.new(draft_params)
+
+			if @article.save
+				@draft.destroy
+			  redirect_to @article
+			else
+				render 'new'
+			end
+
 		end
 	end
 
