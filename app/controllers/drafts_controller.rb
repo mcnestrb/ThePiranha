@@ -30,7 +30,7 @@ class DraftsController < ApplicationController
 				@draft.destroy
 			  redirect_to @article
 			else
-				render 'new'
+				redirect_to edit_draft_path(@draft)
 			end
 		elsif params[:commit] == 'Delete Photo'
 			@draft = Draft.find(params[:id])
