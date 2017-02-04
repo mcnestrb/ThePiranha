@@ -32,7 +32,12 @@ class DraftsController < ApplicationController
 			else
 				render 'new'
 			end
+		elsif params[:commit] == 'Delete Photo'
+			@draft = Draft.find(params[:id])
+			@draft.photo.destroy
+			@draft.save
 
+			redirect_to edit_draft_path(@draft)
 		end
 	end
 

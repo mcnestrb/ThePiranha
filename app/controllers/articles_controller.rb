@@ -38,12 +38,20 @@ class ArticlesController < ApplicationController
 	end
 
 	def update
-		@article = Article.find(params[:id])
+		if params[:commit] == 'Publish'
+			@article = Article.find(params[:id])
 
-		if @article.update(article_params)
-			redirect_to @article
-		else
-			render 'edit'
+			if @article.update(article_params)
+				redirect_to @article
+			else
+				render 'edit'
+			end
+		elsif params[:commit] == 'Delete Photo'
+			@article = Article.find(params[:id])
+			@article.photo.destroy
+			@article.save
+
+			redirect_to edit_article_path
 		end
 	end
 

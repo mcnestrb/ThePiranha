@@ -15,6 +15,9 @@
 	<% unless @draft.photo.url.blank? %>
 		<p>
 			<%= image_tag(@draft.photo.url) %>
+			<% if current_page?(action: 'edit', controller: 'drafts') %>
+				<%= f.submit "Delete Photo", class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this photo?' } %>
+			<% end %>
 		</p>
 	<% end %>
 
