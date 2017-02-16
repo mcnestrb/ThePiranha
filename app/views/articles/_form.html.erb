@@ -29,6 +29,10 @@
 		<%= f.text_area :content, placeholder: 'Article content...', rows: '15' %>
 	</p>
 
+    <p>
+        <%= f.text_field :author_name, placeholder: 'Author name (optional)' %>
+    </p>
+
 	<%= f.label(:photo, 'Add Photo') %><br>
 	<div class="article-photo-input">
 		<div class="wrapper">

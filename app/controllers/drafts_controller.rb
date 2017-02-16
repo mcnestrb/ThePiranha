@@ -50,6 +50,6 @@ class DraftsController < ApplicationController
 
 	private
 		def draft_params
-			params.require(:draft).permit(:title, :content, :photo)
+			params.require(:draft).permit(:title, :content, :photo, :author_name)
 		end
 end
