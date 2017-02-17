@@ -1,0 +1,7 @@
+<% unless @issue_links.empty? %>
+	<% @issue_links.each do |link| %>
+		<h2><%= link_to link.title, issue_link_path(link) %></h2>
+	<% end %>
+<% else %>
+	<h1>No issue links</h1>
+<% end %>

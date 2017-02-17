@@ -10,6 +10,7 @@
 			<h1 class="piranha_title">The Piranha</h1>
 		<% end %>
 		<ul>
+			<li><%= link_to 'Archive', issue_links_path %></li>
 			<% unless admin_signed_in? %>
 				<li><%= link_to 'Log in', '/admins/sign_in' %></li>
 			<% else %>
