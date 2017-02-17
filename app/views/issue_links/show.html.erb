@@ -1,7 +1,25 @@
-<h1><%= @issue_link.title %></h1>
-<% if admin_signed_in? %>
-    <%= button_to("Delete", { action: 'destroy', id: @issue_link.id },
-                                    method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger delete-button') %>
-    <%= button_to("Edit", { action: 'edit', id: @issue_link.id }, method: :get, class: 'btn btn-primary edit-button') %>
-<% end %>
-<%= link_to @issue_link.issue_link, @issue_link.issue_link %>
+<div class="container">
+    <% if admin_signed_in? %>
+		<div class="row">
+			<div class="col-md-3 col-lg-3"></div>
+			<div class="col-md-8 col-lg-8 issue-link-edit-buttons">
+                <%= button_to("Delete", { action: 'destroy', id: @issue_link.id },
+                                                method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger delete-button') %>
+                <%= button_to("Edit", { action: 'edit', id: @issue_link.id }, method: :get, class: 'btn btn-primary edit-button') %>
+			</div>
+			<div class="col-md-1 col-lg-1"></div>
+		</div>
+	<% end %>
+    <div class="row">
+        <div class="col-md-3 col-lg-3"></div>
+        <div class="col-md-8 col-lg-8">
+            <h1><%= @issue_link.title %></h1>
+
+            <div class="link-image">
+                <%= link_to( image_tag(@issue_link.thumbnail_link), @issue_link.issue_link, target: :_blank ) %>
+            </div>
+
+        </div>
+        <div class="col-md-1 col-lg-1"></div>
+    </div>
+</div>

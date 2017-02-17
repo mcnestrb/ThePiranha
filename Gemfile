@@ -15,6 +15,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem "paperclip", "~> 5.0.0"
+gem 'link_thumbnailer'
 group :development, :test do
   gem 'byebug'
 end

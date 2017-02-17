@@ -12,12 +12,10 @@
 		</div>
 	<% end %>
 
-	<p>
-		<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true' %>
-	</p>
-
     <p>
         <%= f.text_field :issue_link, placeholder: 'Link...' %>
+		<%= f.hidden_field :thumbnail_link, value: '' %>
+		<%= f.hidden_field :title, value: '' %>
     </p>
 
 	<p>

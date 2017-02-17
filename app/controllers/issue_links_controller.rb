@@ -1,3 +1,5 @@
+require 'link_thumbnailer'
+
 class IssueLinksController < ApplicationController
     before_action :authenticate_admin!, except: [:show, :index]
 
@@ -15,6 +17,9 @@ class IssueLinksController < ApplicationController
 
     def create
         @issue_link = IssueLink.new(issue_link_params)
+        object = LinkThumbnailer.generate(@issue_link.issue_link)
+        @issue_link.title = object.title
+        @issue_link.thumbnail_link = object.images.first.src.to_s
 
         if @issue_link.save
           redirect_to @issue_link
@@ -46,7 +51,7 @@ class IssueLinksController < ApplicationController
 
     private
 		def issue_link_params
-			params.require(:issue_link).permit(:title, :issue_link)
+			params.require(:issue_link).permit(:issue_link, :title, :thumbnail_link)
 		end
 
 end
