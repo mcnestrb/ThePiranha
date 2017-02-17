@@ -38,7 +38,10 @@ class IssueLinksController < ApplicationController
     end
 
     def destroy
+        @issue_link = IssueLink.find(params[:id])
+		@issue_link.destroy
 
+		redirect_to issue_links_path
     end
 
     private
