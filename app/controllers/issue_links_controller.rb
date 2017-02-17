@@ -15,9 +15,6 @@ class IssueLinksController < ApplicationController
 
     def create
         @issue_link = IssueLink.new(issue_link_params)
-        unless @issue_link.issue_link[/\Ahttp:\/\//] || @issue_link.issue_link[/\Ahttps:\/\//]
-            @issue_link.issue_link = "http://#{@issue_link.issue_link}"
-        end
 
         if @issue_link.save
           redirect_to @issue_link
@@ -27,11 +24,17 @@ class IssueLinksController < ApplicationController
     end
 
     def edit
-
+        @issue_link = IssueLink.find(params[:id])
     end
 
     def update
+        @issue_link = IssueLink.find(params[:id])
 
+        if @issue_link.update(issue_link_params)
+            redirect_to @issue_link
+        else
+            render 'edit'
+        end
     end
 
     def destroy
@@ -43,7 +46,4 @@ class IssueLinksController < ApplicationController
 			params.require(:issue_link).permit(:title, :issue_link)
 		end
 
-        def format_url(issue_link)
-
-        end
 end

@@ -1,2 +1,7 @@
 <h1><%= @issue_link.title %></h1>
+<% if admin_signed_in? %>
+    <%= button_to("Delete", { action: 'destroy', id: @issue_link.id },
+                                    method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger delete-button') %>
+    <%= button_to("Edit", { action: 'edit', id: @issue_link.id }, method: :get, class: 'btn btn-primary edit-button') %>
+<% end %>
 <%= link_to @issue_link.issue_link, @issue_link.issue_link %>
