@@ -3,4 +3,8 @@ class AdminsController < ApplicationController
 
 	def home
 	end
+
+    def manage
+      @admins = Admin.all
+    end
 end
