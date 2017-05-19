@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 	devise_for :admins, controllers: {
                sessions: 'admins/sessions',
                registrations: 'admins/registrations'
-  }
+  	}
+	match 'admin/:id' => 'admins#destroy', :via => :delete, :as => :admin_destroy_user
 	get '/admin' => 'admins#home'
 	get '/admin/manage' => 'admins#manage'
 	root 'articles#index'

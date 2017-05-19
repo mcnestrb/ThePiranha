@@ -1,6 +1,12 @@
-<% @admins.each do |admin| %>
-    <div>
-        <h2><%= admin.email %></h2>
-        <%=  %>
-    </div>
+<% unless @admins.count == 1 %>
+    <% @admins.each do |admin| %>
+        <% unless current_admin == admin %>
+            <div>
+                <h2><%= admin.email %></h2>
+                <%= link_to "Destroy", admin_destroy_user_path(admin), method: :delete, data: { confirm: "You sure?" } %>
+            </div>
+        <% end %>
+    <% end %>
+<% else %>
+    <h2>You are the only admin</h2>
 <% end %>
