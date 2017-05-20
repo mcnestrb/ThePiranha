@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-	track_views actions: [:show], unique: [:session_hash]
 	before_action :authenticate_admin!, except: [:show, :index]
+	before_action :is_verified_admin?, except: [:show, :index]
 
 	def index
 		@articles = Article.all
