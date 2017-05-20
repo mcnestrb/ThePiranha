@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_admin!, except: [:show, :index]
 	before_action :is_verified_admin?, except: [:show, :index]
+	impressionist :actions=>[:show]
 
 	def index
 		@articles = Article.all
@@ -8,6 +9,7 @@ class ArticlesController < ApplicationController
 
 	def show
     	@article = Article.find(params['id'])
+		@article_views = @article.impressionist_count(:filter=>:session_hash)
 	end
 
 	def new

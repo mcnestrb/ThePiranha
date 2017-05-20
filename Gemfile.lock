@@ -78,6 +78,8 @@ GEM
       image_size
       typhoeus
     image_size (1.5.0)
+    impressionist (1.5.2)
+      nokogiri (~> 1.6)
     iso8601 (0.9.1)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -114,7 +116,6 @@ GEM
       ast
       ruby-ll (~> 2.1)
     orm_adapter (0.5.0)
-    pageviews (0.1.0)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -213,10 +214,10 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   link_thumbnailer
-  pageviews
   paperclip (~> 5.0.0)
   pg (~> 0.15)
   rails (= 4.2.5)
