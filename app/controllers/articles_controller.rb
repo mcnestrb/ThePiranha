@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
 	impressionist :actions=>[:show]
 
 	def index
-		@articles = Article.all
+		@articles = Article.all.order('created_at desc').limit(13)
+		@featured_1 = @articles[0]
+		@featured_2 = @articles[1]
+		@featured_3 = @articles[2]
+		@articles = @articles[3..12]
 	end
 
 	def show

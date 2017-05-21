@@ -1,7 +1,47 @@
-<% unless @articles.empty? %>
-	<% @articles.each do |article| %>
-		<h2><%= link_to article.title, article_path(article) %></h2>
-	<% end %>
-<% else %>
-	<h1>No articles</h1>
-<% end %>
+<div class="container">
+
+	<div class="row features">
+		<div class="col-md-1 col-lg-1"></div>
+		<div class="col-md-6 col-lg-6">
+			<%= link_to article_path(@featured_1) do %>
+				<div class="featured-1">
+					<div class="headline-img">
+						<% unless @featured_1.photo.url.blank? %>
+							<%= image_tag @featured_1.photo.url %>
+						<% end %>
+					</div>
+					<h3 class="headline-title"><%= @featured_1.title %></h3>
+					<p class="headline-text"><%= @featured_1.content.first(300) %>...</p>
+				</div>
+			<% end %>
+		</div>
+		<div class="col-md-5 col-lg-5">
+			<%= link_to article_path(@featured_2) do %>
+				<div class="featured-2">
+					<h3 class="featured-2-title"><%= @featured_2.title %></h3>
+					<p class="featured-2-text"><%= @featured_2.content.first(300) %>...</p>
+				</div>
+			<% end %>
+			<%= link_to article_path(@featured_3) do %>
+				<div class="featured-3">
+					<h3 class="featured-2-title"><%= @featured_3.title %></h3>
+					<p class="featured-2-text"><%= @featured_3.content.first(300) %>...</p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-1 col-lg-1"></div>
+		<div class="col-md-8 col-lg-8">
+		<% unless @articles.empty? %>
+			<% @articles.each do |article| %>
+				<h2><%= link_to article.title, article_path(article) %></h2>
+			<% end %>
+		<% else %>
+			<h1>No articles</h1>
+		<% end %>
+		</div>
+	</div>
+
+</div>
