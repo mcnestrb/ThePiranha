@@ -40,8 +40,12 @@
 	<div class="row">
 		<div class="col-md-1 col-lg-1"></div>
 		<div class="col-md-8 col-lg-8">
-			<% @articles.each do |article| %>
-				<h2><%= link_to article.title, article_path(article) %></h2>
+			<% unless @articles.empty? %>
+				<% @articles.each do |article| %>
+					<h2><%= link_to article.title, article_path(article) %></h2>
+				<% end %>`
+			<% else %>
+				<h3>No articles</h3>
 			<% end %>
 		</div>
 	</div>
