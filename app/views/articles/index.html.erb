@@ -3,7 +3,7 @@
 	<div class="row features">
 		<div class="col-md-1 col-lg-1"></div>
 		<div class="col-md-6 col-lg-6">
-			<%= link_to article_path(@featured_1) do %>
+			<%= link_to article_path(@featured_1.id) do %>
 				<div class="featured-1">
 					<div class="headline-img">
 						<% unless @featured_1.photo.url.blank? %>
@@ -16,13 +16,13 @@
 			<% end %>
 		</div>
 		<div class="col-md-5 col-lg-5">
-			<%= link_to article_path(@featured_2) do %>
+			<%= link_to article_path(@featured_2.id) do %>
 				<div class="featured-2">
 					<h3 class="featured-2-title"><%= @featured_2.title %></h3>
 					<p class="featured-2-text"><%= @featured_2.content.first(300) %>...</p>
 				</div>
 			<% end %>
-			<%= link_to article_path(@featured_3) do %>
+			<%= link_to article_path(@featured_3.id) do %>
 				<div class="featured-3">
 					<h3 class="featured-2-title"><%= @featured_3.title %></h3>
 					<p class="featured-2-text"><%= @featured_3.content.first(300) %>...</p>
