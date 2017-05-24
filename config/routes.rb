@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	resources :articles, :issue_links
+	post '/articles/:id' => 'articles#feature', :as => :feature_article
 	resources :drafts, only: [:edit, :update, :destroy, :index]
 	devise_for :admins
 	match 'admin/:id' => 'admins#destroy', :via => :delete, :as => :admin_destroy_user

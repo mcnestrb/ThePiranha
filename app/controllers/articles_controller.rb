@@ -4,11 +4,10 @@ class ArticlesController < ApplicationController
 	impressionist :actions=>[:show]
 
 	def index
-		@articles = Article.all.order('created_at desc').limit(13)
-		@featured_1 = @articles[0]
-		@featured_2 = @articles[1]
-		@featured_3 = @articles[2]
-		@articles = @articles[3..12]
+		@articles = Article.all.where(featured: 0).order('created_at desc').limit(13)
+		@featured_1 = Article.where(featured: 1).take
+		@featured_2 = Article.where(featured: 2).take
+		@featured_3 = Article.where(featured: 3).take
 	end
 
 	def show
@@ -67,6 +66,20 @@ class ArticlesController < ApplicationController
 		@article.destroy
 
 		redirect_to articles_path
+	end
+
+	def feature
+		@old_feature = Article.where(featured: params["/articles/#{params[:id]}"][:feature]).take
+		unless !@old_feature
+			@old_feature.featured = 0
+			@old_feature.save
+		end
+
+		@article = Article.find(params[:id])
+		@article.featured = params["/articles/#{params[:id]}"][:feature]
+		@article.save
+
+		redirect_to root_path
 	end
 
 	private

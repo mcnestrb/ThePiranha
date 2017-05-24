@@ -6,8 +6,8 @@ class AdminsController < ApplicationController
 	end
 
     def manage
-      @verified_admins = Admin.where(verified: true)
-	  @unverified_admins = Admin.where(verified: false)
+		@verified_admins = Admin.where(verified: true)
+		@unverified_admins = Admin.where(verified: false)
     end
 
 	def destroy
