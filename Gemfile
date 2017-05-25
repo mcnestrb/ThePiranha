@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem "paperclip", "~> 5.0.0"
 gem 'link_thumbnailer'
 gem 'impressionist'
+gem 'social-share-button'
 group :development, :test do
   gem 'byebug'
 end

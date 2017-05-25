@@ -1,5 +1,5 @@
 <div class="container">
-	<% if admin_signed_in? %>
+	<% if admin_signed_in? && is_verified_admin? %>
 		<div class="row">
 			<div class="col-md-3 col-lg-3"></div>
 			<div class="col-md-8 col-lg-8 article-edit-buttons">
@@ -41,11 +41,8 @@
 		<div class="col-md-3 col-lg-3"></div>
 		<div class="col-md-8 col-lg-8 article-content">
     	<%= simple_format(@article.content) %>
-			<div class="social-likes">
-				<div class="facebook" title="Share link on Facebook">Facebook</div>
-				<div class="twitter" title="Share link on Twitter">Twitter</div>
-			</div>
-			<% if admin_signed_in? %>
+			<%= social_share_button_tag(@article.title) %>
+			<% if admin_signed_in? && is_verified_admin? %>
 				<div class="page-views">Page Views: <%= @article_views %></div>
 			<% end %>
 		</div>
