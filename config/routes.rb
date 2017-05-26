@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 	get '/admin/manage' => 'admins#manage'
 	put '/admin/manage/:id' => 'admins#verify', :method => :put, :as => :verify_admin
 	root 'articles#index'
+	post '/search' => 'search#search'
+	get '/search' => 'search#search'
 end

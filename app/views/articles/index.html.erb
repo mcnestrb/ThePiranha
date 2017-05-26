@@ -47,7 +47,7 @@
 			<% unless @articles.empty? || !@articles %>
 				<% @articles.each do |article| %>
 					<h2><%= link_to article.title, article_path(article) %></h2>
-				<% end %>`
+				<% end %>
 			<% else %>
 				<h3>No articles</h3>
 			<% end %>

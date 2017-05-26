@@ -10,6 +10,11 @@
 			<h1 class="piranha_title">The Piranha</h1>
 		<% end %>
 		<ul>
+			<li>
+				<%= form_tag :controller => 'search', :action => 'search' do %>
+        			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
+				<% end %>
+			</li>
 			<li><%= link_to 'Archive', issue_links_path %></li>
 			<% unless admin_signed_in? %>
 				<li><%= link_to 'Log in', '/admins/sign_in' %></li>

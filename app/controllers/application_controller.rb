@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
           redirect_to articles_path, :notice => "Not yet verified"
       end
   end
+
+  def search
+      @articles = Article.search(params[:search])
+  end
 end
