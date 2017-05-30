@@ -11,13 +11,13 @@
 		<% end %>
 		<ul>
 			<li>
-				<%= form_tag({:controller => 'search', :action => 'search'}, {:class => "search-form"}) do %>
+				<%= form_tag(search_path, {:class => "search-form"}) do %>
         			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
 				<% end %>
 			</li>
 			<li><%= link_to 'Archive', issue_links_path %></li>
 			<% unless admin_signed_in? %>
-				<li><%= link_to 'Log in', '/admins/sign_in' %></li>
+				<li><%= link_to 'Log in', new_admin_session_path %></li>
 			<% else %>
 				<li><%= link_to 'Admin', admin_path %></li>
 				<li><%= link_to 'Log out', destroy_admin_session_path, :method => :delete %></li>
