@@ -11,7 +11,7 @@
 		<% end %>
 		<ul>
 			<li>
-				<%= form_tag(search_path, {:class => "search-form"}) do %>
+				<%= form_tag(search_path, {:class => "search-form", :method => :get}) do %>
         			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
 				<% end %>
 			</li>

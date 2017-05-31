@@ -9,6 +9,5 @@ Rails.application.routes.draw do
 	put '/admin/manage/:id' => 'admins#verify', :method => :put, :as => :verify_editor
 	get '/editor' => 'editors#home'
 	root 'articles#index'
-	post '/search' => 'search#search'
-	get '/search' => 'search#search'
+	get '/search' => 'search#search', :as => :search
 end
