@@ -1,8 +1,8 @@
 require 'link_thumbnailer'
 
 class IssueLinksController < ApplicationController
-    before_action :authenticate_admin!, except: [:show, :index]
-    before_action :is_verified_admin?, except: [:show, :index]
+    before_action :authenticate_editor!, except: [:show, :index]
+    before_action :is_verified_editor?, except: [:show, :index]
 
     def index
         @issue_links = IssueLink.all

@@ -16,11 +16,15 @@
 				<% end %>
 			</li>
 			<li><%= link_to 'Archive', issue_links_path %></li>
-			<% unless admin_signed_in? %>
-				<li><%= link_to 'Log in', new_admin_session_path %></li>
-			<% else %>
+			<% if !(admin_signed_in? || editor_signed_in?) %>
+				<li><%= link_to 'Admin Log In', new_admin_session_path %></li>
+				<li><%= link_to 'Editor Log In', new_editor_session_path %></li>
+			<% elsif admin_signed_in? %>
 				<li><%= link_to 'Admin', admin_path %></li>
 				<li><%= link_to 'Log out', destroy_admin_session_path, :method => :delete %></li>
+			<% elsif editor_signed_in? %>
+				<li><%= link_to 'Editor', editor_path %></li>
+				<li><%= link_to 'Log out', destroy_editor_session_path, :method => :delete %></li>
 			<% end %>
 		</ul>
 	</div>

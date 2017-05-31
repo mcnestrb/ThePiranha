@@ -1,6 +1,6 @@
 class DraftsController < ApplicationController
-	before_action :authenticate_admin!
-	before_action :is_verified_admin?
+	before_action :authenticate_editor!
+	before_action :is_verified_editor?
 
 	def index
 		@drafts = Draft.all

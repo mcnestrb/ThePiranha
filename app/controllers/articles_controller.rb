@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_admin!, except: [:show, :index]
-	before_action :is_verified_admin?, except: [:show, :index]
+	before_action :authenticate_editor!, except: [:show, :index]
+	before_action :is_verified_editor?, except: [:show, :index]
 	impressionist :actions=>[:show]
 
 	def index
@@ -82,7 +82,7 @@ class ArticlesController < ApplicationController
 		redirect_to root_path
 	end
 
-	
+
 
 	private
 		def article_params

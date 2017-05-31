@@ -1,30 +1,30 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <h2>Manage Admins</h2>
-            <% unless @verified_admins.count == 1 %>
-                <% @verified_admins.each do |admin| %>
-                    <% unless current_admin == admin %>
+            <h2>Manage Editors</h2>
+            <% unless @verified_editors.count == 0 %>
+                <% @verified_editors.each do |editor| %>
+                    <% unless current_editor == editor %>
                         <div>
-                            <h3><%= admin.email %></h3>
-                            <%= link_to "Delete", admin_destroy_user_path(admin), method: :delete, data: { confirm: "Are you sure you want to delete #{admin.email}?" } %>
+                            <h3><%= editor.email %></h3>
+                            <%= link_to "Delete", admin_destroy_editor_path(editor), method: :delete, data: { confirm: "Are you sure you want to delete #{editor.email}?" } %>
                         </div>
                     <% end %>
                 <% end %>
             <% else %>
-                <h3>You are the only admin</h3>
+                <h3>There are no verified editors</h3>
             <% end %>
         </div>
     </div>
 
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <h2>Verify Admins</h2>
-            <% unless @unverified_admins.count == 0 %>
-                <% @unverified_admins.each do |admin| %>
+            <h2>Verify Editors</h2>
+            <% unless @unverified_editors.count == 0 %>
+                <% @unverified_editors.each do |editor| %>
                     <div>
-                        <h4><%= admin.email %></h4>
-                        <%= link_to "Verify", verify_admin_path(admin), method: :put, data: { confirm: "Are you sure you want to verify #{admin.email}?" } %>
+                        <h4><%= editor.email %></h4>
+                        <%= link_to "Verify", verify_editor_path(editor), method: :put, data: { confirm: "Are you sure you want to verify #{editor.email}?" } %>
                     </div>
                 <% end %>
             <% else %>
