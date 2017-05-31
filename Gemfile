@@ -19,6 +19,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'link_thumbnailer'
 gem 'impressionist'
 gem 'social-share-button'
+gem 'will_paginate', '~> 3.1.0'
 group :development, :test do
   gem 'byebug'
 end

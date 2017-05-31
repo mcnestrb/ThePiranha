@@ -3,6 +3,7 @@
     <% @articles.each do |article| %>
         <h4><%= link_to article.title, article_path(article) %></h2>
     <% end %>
+    <%= will_paginate @articles %>
 <% else %>
     <h2>No results for the search term "<%= @search_term %>"</h2>
 <% end %>
