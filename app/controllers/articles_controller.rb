@@ -69,13 +69,17 @@ class ArticlesController < ApplicationController
 	end
 
 	def feature
+		@article = Article.find(params[:id])
 		@old_feature = Article.where(featured: params["/articles/#{params[:id]}"][:feature]).take
-		unless !@old_feature
+		
+		if @article.featured != 0 && !@old_feature.blank?
+			@old_feature.featured = @article.featured
+			@old_feature.save
+		elsif !@old_feature.blank?
 			@old_feature.featured = 0
 			@old_feature.save
 		end
 
-		@article = Article.find(params[:id])
 		@article.featured = params["/articles/#{params[:id]}"][:feature]
 		@article.save
 
