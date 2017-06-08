@@ -1,8 +1,12 @@
 <div algin="center">
-    <h3>Send a message to us</h3>
+    <h3>Write For Us</h3>
+
+    <p>
+        Are you a Trinity student interested in writing for The Piranha? Do you have your finger on the pulse of Trinity’s student life? Do you know what’s hot and what’s not, or at least can write with enough persuasion that it seems like you do? Do you struggle with the concept of your own fragile mortality on a daily basis? Great! Then, we’d love to hear from you. Send us your ideas, finished pieces, malicious gossip or outright lies via the form below along with your TCD email and we’ll be sure to get back to you. Unless we’re not bothered/hungover/asleep.
+    </p>
 
     <%= simple_form_for @contact, :html => {:class => 'form-horizontal'} do |f| %>
-        <%= f.input :name, :required => true %>
+        <%= f.input :name %>
         <%= f.input :email, :required => true %>
         <%= f.input :message, :as => :text, :required => true %>
         <div class="hidden">
