@@ -5,4 +5,5 @@ class Admin < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   attr_readonly :email
+  validates_format_of :email, with: /piranhatcd\@gmail\.com/, message: "There is only one admin account"
 end

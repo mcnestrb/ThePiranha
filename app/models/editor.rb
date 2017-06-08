@@ -5,4 +5,5 @@ class Editor < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   attr_readonly :email
+  validates_format_of :email, with: /\@tcd\.ie/, message: 'You should have an email from tcd.ie'
 end
