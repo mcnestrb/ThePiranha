@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 	get '/editor' => 'editors#home'
 	root 'articles#index'
 	get '/search' => 'search#search'
+	match '/contacts',     to: 'contacts#new',             via: 'get'
+	resources "contacts", only: [:new, :create]
 end

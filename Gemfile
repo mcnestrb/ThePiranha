@@ -20,6 +20,8 @@ gem 'link_thumbnailer'
 gem 'impressionist'
 gem 'social-share-button'
 gem 'will_paginate', '~> 3.1.0'
+gem 'mail_form'
+gem 'simple_form'
 group :development, :test do
   gem 'byebug'
   gem 'foreman'
