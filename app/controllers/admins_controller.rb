@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
 	    @editor.destroy
 
 	    if @editor.destroy
-	        redirect_to admin_path, notice: "Editor deleted."
+	        redirect_to admin_manage_path, notice: "Editor deleted."
 	    end
   	end
 

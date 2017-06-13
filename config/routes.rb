@@ -2,18 +2,8 @@ Rails.application.routes.draw do
 	resources :articles, :issue_links
 	post '/articles/:id' => 'articles#feature', :as => :feature_article
 	resources :drafts, only: [:edit, :update, :destroy, :index]
-	devise_for :editors
-	devise_for :admins, skip: :registrations
-	devise_scope :admin do
-	  resource :registration,
-	    only: [:new, :create, :edit, :update],
-	    path: 'admin',
-	    path_names: { new: 'sign_up' },
-	    controller: 'devise/registrations',
-	    as: :admin_registration do
-	      get :cancel
-	    end
-	end
+	devise_for :editors, except: [:registrations]
+	devise_for :admins, except: [:registrations]
 	match 'admin/:id' => 'admins#destroy', :via => :delete, :as => :admin_destroy_editor
 	get '/admin' => 'admins#home'
 	get '/admin/manage' => 'admins#manage'
