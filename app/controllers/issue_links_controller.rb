@@ -20,6 +20,7 @@ class IssueLinksController < ApplicationController
         object = LinkThumbnailer.generate(@issue_link.issue_link)
         @issue_link.title = object.title
         @issue_link.thumbnail_link = object.images.first.src.to_s
+        @issue_link.date = object.description.split('Published: ').second
 
         if @issue_link.save
           redirect_to @issue_link

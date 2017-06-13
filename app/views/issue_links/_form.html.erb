@@ -16,11 +16,8 @@
         <%= f.text_field :issue_link, placeholder: 'Link...' %>
 		<%= f.hidden_field :thumbnail_link, value: '' %>
 		<%= f.hidden_field :title, value: '' %>
+		<%= f.hidden_field :date, value: '' %>
     </p>
-
-	<p>
-		<%= f.text_field :date, placeholder: 'Pulish date', data: { provide: 'datepicker' } %>
-	</p>
 
 	<p>
 		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
