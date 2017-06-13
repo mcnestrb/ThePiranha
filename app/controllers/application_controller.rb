@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
   def search
       @articles = Article.search(params[:search]).paginate(:page => params[:page], :per_page => 10)
   end
+  
+  protected
+  def authenticate_inviter!
+    authenticate_admin!(:force => true)
+  end
 end
