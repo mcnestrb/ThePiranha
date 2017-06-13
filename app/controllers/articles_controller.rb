@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 		@featured_1 = Article.where(featured: 1).take
 		@featured_2 = Article.where(featured: 2).take
 		@featured_3 = Article.where(featured: 3).take
+		@latest_issue = IssueLink.order('date desc').take
 	end
 
 	def show

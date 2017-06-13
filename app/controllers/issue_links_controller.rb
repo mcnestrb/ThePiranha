@@ -51,7 +51,7 @@ class IssueLinksController < ApplicationController
 
     private
 		def issue_link_params
-			params.require(:issue_link).permit(:issue_link, :title, :thumbnail_link)
+			params.require(:issue_link).permit(:issue_link, :title, :date, :thumbnail_link)
 		end
 
 end
