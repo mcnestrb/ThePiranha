@@ -35,6 +35,10 @@ class IssueLinksController < ApplicationController
 
     def update
         @issue_link = IssueLink.find(params[:id])
+        object = LinkThumbnailer.generate(params[:issue_link][:issue_link])
+        params[:issue_link][:title] = object.title
+        params[:issue_link][:thumbnail_link] = object.images.first.src.to_s
+        params[:issue_link][:date] = object.description.split('Published: ').second
 
         if @issue_link.update(issue_link_params)
             redirect_to @issue_link
