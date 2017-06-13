@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_editor!, except: [:show, :index]
-	before_action :is_verified_editor?, except: [:show, :index]
 	impressionist :actions=>[:show]
 
 	def index
@@ -71,7 +70,7 @@ class ArticlesController < ApplicationController
 	def feature
 		@article = Article.find(params[:id])
 		@old_feature = Article.where(featured: params["/articles/#{params[:id]}"][:feature]).take
-		
+
 		if @article.featured != 0 && !@old_feature.blank?
 			@old_feature.featured = @article.featured
 			@old_feature.save

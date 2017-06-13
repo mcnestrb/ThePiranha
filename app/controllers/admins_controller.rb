@@ -5,8 +5,7 @@ class AdminsController < ApplicationController
 	end
 
     def manage
-		@verified_editors = Editor.where(verified: true)
-		@unverified_editors = Editor.where(verified: false)
+		@editors = Editor.all
     end
 
 	def destroy
@@ -17,13 +16,4 @@ class AdminsController < ApplicationController
 	        redirect_to admin_manage_path, notice: "Editor deleted."
 	    end
   	end
-
-	def verify
-		@editor = Editor.find(params[:id])
-		@editor.verified = true
-
-		@editor.save
-
-		redirect_to admin_manage_path
-	end
 end
