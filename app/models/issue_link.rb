@@ -3,6 +3,10 @@ class IssueLink < ActiveRecord::Base
     validates :issue_link, uniqueness: true, :on => [:create, :update]
     before_validation :smart_add_url_func
 
+    def self.by_year(year)
+        where('extract(year from date) = ?', year)
+    end
+
     protected
 
         def smart_add_url_func

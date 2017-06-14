@@ -4,7 +4,11 @@ class IssueLinksController < ApplicationController
     before_action :authenticate_editor!, except: [:show, :index]
 
     def index
-        @issue_links = IssueLink.all
+        if params[:year]
+            @issue_links = IssueLink.by_year(params[:year])
+        else
+            @issue_links = IssueLink.all
+        end
     end
 
     def show
