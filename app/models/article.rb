@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
   	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
 
 	def self.search(search)
-  		where("title LIKE ? OR content LIKE ?", "%#{search}%", "%#{search}%")
+  		where("LOWER(title) LIKE LOWER(?) OR LOWER(content) LIKE LOWER(?)", "%#{search}%", "%#{search}%")
 	end
 
 	private
