@@ -1,4 +1,4 @@
-
+<%= select_tag(:year, options_for_select(@years, @year), :onchange => "filter_by_year(this.value)") %>
 
 <% unless @issue_links.empty? %>
 	<div class="row">

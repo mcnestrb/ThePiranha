@@ -9,6 +9,8 @@ class IssueLinksController < ApplicationController
         else
             @issue_links = IssueLink.all
         end
+        @years = IssueLink.select("date").order('date desc').map{ |i| i.date.year }.uniq
+        @year = params[:year]
     end
 
     def show
