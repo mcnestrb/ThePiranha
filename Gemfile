@@ -27,6 +27,7 @@ gem 'simple_form'
 group :development, :test do
   gem 'byebug'
   gem 'foreman'
+  gem 'dotenv-rails'
 end
 
 group :development do

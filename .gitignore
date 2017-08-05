@@ -12,7 +12,6 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
-.env
 Procfile
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
