@@ -7,9 +7,9 @@ class IssueLinksController < ApplicationController
         if params[:year] && !params[:year].blank?
             @issue_links = IssueLink.by_year(params[:year])
         else
-            @issue_links = IssueLink.all
+            @issue_links = IssueLink.all.order('date desc')
         end
-        @years = IssueLink.select("date").order('date desc').map{ |i| i.date.year }.uniq
+        @years = IssueLink.select("date").order('date desc').map{ |i| i.date.year }.uniq.compact
         @year = params[:year]
     end
 
