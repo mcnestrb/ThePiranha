@@ -17,7 +17,7 @@
         			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
 				<% end %>
 			</li>
-			<li><%= link_to 'Archive', issue_links_path %></li>
+			<li><%= link_to 'Issues', issue_links_path %></li>
 			<% if !(admin_signed_in? || editor_signed_in?) %>
 				<li><%= link_to 'Admin Log In', new_admin_session_path %></li>
 				<li><%= link_to 'Editor Log In', new_editor_session_path %></li>

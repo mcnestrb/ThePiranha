@@ -1,15 +1,17 @@
-<%= select_tag(:year, options_for_select(@years, @year), :onchange => "filter_by_year(this.value)") %>
+<%= select_tag(:year, options_for_select(@years, @year), {:prompt => "Select a Year", :id => "filter_by_year"}) %>
 
-<% unless @issue_links.empty? %>
-	<div class="row">
-		<% @issue_links.each do |issue_link| %>
-			<div class="col-sm-6 col-md-4 col-lg-4">
-				<div class="issue-link-box">
-					<%= link_to (image_tag issue_link.thumbnail_link, class:"issue-link-image"), issue_link %>
+<div class="issue_links" id="issue_links">
+	<% unless @issue_links.empty? %>
+		<div class="row">
+			<% @issue_links.each do |issue_link| %>
+				<div class="col-sm-6 col-md-4 col-lg-4">
+					<div class="issue-link-box">
+						<%= link_to (image_tag issue_link.thumbnail_link, class:"issue-link-image"), issue_link %>
+					</div>
 				</div>
-			</div>
-		<% end %>
-	</div>
-<% else %>
-	<h1>No issue links</h1>
-<% end %>
+			<% end %>
+		</div>
+	<% else %>
+		<h1>No issue links</h1>
+	<% end %>
+</div>
