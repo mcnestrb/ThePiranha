@@ -9,7 +9,7 @@ class IssueLinksController < ApplicationController
         else
             @issue_links = IssueLink.all.order('date desc')
         end
-        @years = IssueLink.select("date").order('date desc').compact.map{ |i| i.date.year }.uniq
+        @years = IssueLink.select("date").where.not(date: nil).order('date desc').map{ |i| i.date.year }.uniq
         @year = params[:year]
     end
 
