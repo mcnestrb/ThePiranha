@@ -17,10 +17,18 @@
 				<li id="admin-login"><%= link_to 'ADMIN LOGIN', new_admin_session_path %></li>
 				<li id="editor-login"><%= link_to 'EDITOR LOGIN', new_editor_session_path %></li>
 			<% elsif admin_signed_in? %>
-				<li id="log-out"><%= link_to 'Log out', destroy_admin_session_path, :method => :delete %></li>
+				<li id="log-out">
+					<%= link_to destroy_admin_session_path, :method => :delete do %>
+						<div class="glyphicon glyphicon-off"></div>
+					<% end %>
+				</li>
 				<li id="admin"><%= link_to 'ADMIN', admin_path %></li>
 			<% elsif editor_signed_in? %>
-				<li id="log-out"><%= link_to 'Log out', destroy_editor_session_path, :method => :delete %></li>
+				<li id="log-out">
+					<%= link_to destroy_editor_session_path, :method => :delete do %>
+						<div class="glyphicon glyphicon-off"></div>
+					<% end %>
+				</li>
 				<li id="admin"><%= link_to 'EDITOR', editor_path %></li>
 			<% end %>
 			<li id="issues"><%= link_to 'ISSUES', issue_links_path %></li>
