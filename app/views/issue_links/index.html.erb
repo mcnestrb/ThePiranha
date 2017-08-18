@@ -1,4 +1,4 @@
-<%= select_tag(:year, options_for_select(@years, @year), {:prompt => "Select a Year", :id => "filter_by_year"}) %>
+<%= select_tag(:year, options_for_select(@years, @year), {:prompt => "Select a Year", :id => "filter_by_year", :class => "btn btn-default dropdown-toggle"}) %>
 
 <div class="issue_links" id="issue_links">
 	<% unless @issue_links.empty? %>
