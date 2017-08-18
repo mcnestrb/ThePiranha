@@ -1,7 +1,7 @@
 <div class="container page-body-container">
 
 	<div class="row features">
-		<div class="col-md-3 col-lg-3">
+		<div class="col-md-3 col-lg-3 col-xs-12">
 			<div class="latest-issue">
 				<% unless @latest_issue.blank? %>
 					<h4>Latest Issue</h4>
@@ -10,7 +10,7 @@
 							<div class="link-image">
 				                <%= image_tag(@latest_issue.thumbnail_link) %>
 				            </div>
-							<h4><%= @latest_issue.title %></h4>
+							<h4 class="latest-issue-title"><%= @latest_issue.title %></h4>
 						</div>
 					<% end %>
 				<% else %>
@@ -18,7 +18,7 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="col-md-5 col-lg-5">
+		<div class="col-md-5 col-lg-5 col-xs-12">
 			<% unless @featured_1.blank? %>
 				<%= link_to article_path(@featured_1.id) do %>
 					<div class="featured-1">
@@ -37,7 +37,7 @@
 				<% end %>
 			<% end %>
 		</div>
-		<div class="col-md-4 col-lg-4">
+		<div class="col-md-4 col-lg-4 visible-md visible-lg secondary-features">
 			<% unless @featured_2.blank? %>
 				<%= link_to article_path(@featured_2.id) do %>
 					<div class="featured-2">
