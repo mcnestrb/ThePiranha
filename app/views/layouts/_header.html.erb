@@ -32,6 +32,8 @@
 						</li>
 						<li id="admin"><%= link_to 'EDITOR', editor_path %></li>
 					<% end %>
+					<li><%= link_to 'CONTACT', contacts_path %></li>
+					<li><%= link_to 'ABOUT US', about_path %></li>
 					<li id="issues"><%= link_to 'ISSUES', issue_links_path %></li>
 					<li id="search-box">
 						<%= form_tag(search_path, {:class => "search-form", :method => :get}) do %>
