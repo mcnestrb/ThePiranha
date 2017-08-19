@@ -75,11 +75,14 @@ h4
 	:margin-right 5%
 	:padding none
 	:overflow hidden
+	@media screen and (max-width: 768px)
 
 .page_header ul li
 	:float right
 	:margin-right 10px
 	:line-height 100%
+	@media screen and (max-width: 768px)
+		:float left
 
 .page_header li:after
 	:content ''
@@ -90,6 +93,7 @@ h4
 	:background transparent
 	:transition width .5s ease
 	:background-color .5s ease
+	@media screen and (max-width: 768px)
 
 li:hover:after
 	:width 100%
@@ -130,8 +134,6 @@ li:hover:after
 
 .search:focus
 	width: 250px
-	@media screen and (max-width: 768px)
-		width: 75px
 
 /*
  * Page Footer
