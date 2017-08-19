@@ -1,5 +1,5 @@
 class IssueLink < ActiveRecord::Base
-    validates_format_of :issue_link, :with => /(issuu\.com\/piranhatcd)/, :on => [:create, :update]
+    validates_format_of :issue_link, :with => /(issuu\.com\/)(the)?(piranha)/, :on => [:create, :update]
     validates :issue_link, uniqueness: true, :on => [:create, :update]
     before_validation :smart_add_url_func
 
