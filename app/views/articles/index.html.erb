@@ -49,20 +49,20 @@
 			<% unless @featured_3.blank? %>
 				<%= link_to article_path(@featured_3.id) do %>
 					<div class="featured-3">
-						<h3 class="featured-2-title"><%= @featured_3.title %></h3>
-						<p class="featured-2-text"><%= @featured_3.content.first(200) %>...</p>
+						<h3 class="featured-3-title"><%= @featured_3.title %></h3>
+						<p class="featured-3-text"><%= @featured_3.content.first(200) %>...</p>
 					</div>
 				<% end %>
 			<% end %>
 		</div>
 	</div>
 
-	<div class="row articles-list">
+	<div class="row">
 		<div class="col-md-1 col-lg-1"></div>
 		<div class="col-md-8 col-lg-8">
 			<% unless @articles.empty? || !@articles %>
 				<% @articles.each do |article| %>
-					<h2><%= link_to article.title, article_path(article) %></h2>
+					<h2><%= link_to article.title, article_path(article), {:class => "article-in-list"} %></h2>
 				<% end %>
 			<% else %>
 				<h3>No articles</h3>
