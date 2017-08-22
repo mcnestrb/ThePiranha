@@ -12,7 +12,7 @@
 					<%= image_tag('Piranha Logo PNG.png') %>
 				</div>
 			<% end %>
-			<div class="col-md-9 col-lg-9 visible-lg visible-md">
+			<div class="col-md-9 col-lg-9 visible-lg visible-md desktop-header">
 				<ul>
 					<% if !(admin_signed_in? || editor_signed_in?) %>
 						<li id="admin-login"><%= link_to 'ADMIN LOGIN', new_admin_session_path %></li>
@@ -52,12 +52,8 @@
 				      	</button>
     				</div>
 					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav">
-							<li id="search-box">
-								<%= form_tag(search_path, {:class => "search-form", :method => :get}) do %>
-				        			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
-								<% end %>
-							</li>
+						<ul class="nav navbar-nav nav-stacked">
+
 							<li><%= link_to 'HOME', root_path %></li>
 							<li><%= link_to 'ALL ISSUES', issue_links_path %></li>
 							<li><%= link_to 'ABOUT US', about_path %></li>
@@ -80,7 +76,11 @@
 									<% end %>
 								</li>
 							<% end %>
-
+							<li id="search-box">
+								<%= form_tag(search_path, {:class => "search-form", :method => :get}) do %>
+				        			<%= text_field_tag :search, params[:search], class: "search", placeholder: "Search..." %>
+								<% end %>
+							</li>
 						</ul>
 					</ul>
   				</div>

@@ -70,21 +70,21 @@ h4
 	:height 80px
 	:border-bottom solid 2px black
 
-.page_header ul
+.page_header .desktop-header ul
 	:list-style-type none
 	:margin-right 5%
 	:padding none
 	:overflow hidden
 	@media screen and (max-width: 768px)
 
-.page_header ul li
+.page_header .desktop-header ul li
 	:float right
 	:margin-right 10px
 	:line-height 100%
 	@media screen and (max-width: 768px)
 		:float left
 
-.page_header li:after
+.page_header .desktop-header li:after
 	:content ''
 	:display block
 	:margin auto
@@ -94,11 +94,11 @@ h4
 	:transition width .5s ease
 	:background-color .5s ease
 
-li:hover:after
+.desktop-header li:hover:after
 	:width 100%
 	:background black
 
-.page_header ul li a
+.page_header .desktop-header ul li a
 	:text-decoration none
 	:display block
 	:text-align center
