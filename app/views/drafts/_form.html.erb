@@ -1,50 +1,84 @@
-<%= form_for @draft, html: { multipart: true } do |f| %>
+<%= bootstrap_form_for @draft, html: { multipart: true } do |f| %>
 	<% if @draft.errors.any? %>
-		<div class="error_explanation">
-			<h2>
-				<%= pluralize(@draft.errors.count, "error") %> prohibited this article from being saved:
-			</h2>
-			<ul>
-				<% @draft.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
+		<div class="row">
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-sm-12 col-md-9 col-lg-9">
+				<div class="error_explanation">
+					<h2>
+						<%= pluralize(@draft.errors.count, "error") %> prohibited this article from being saved:
+					</h2>
+					<ul>
+						<% @draft.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
 		</div>
 	<% end %>
 
 	<% unless @draft.photo.url.blank? %>
-		<p>
-			<%= image_tag(@draft.photo.url) %>
-			<% if current_page?(action: 'edit', controller: 'drafts') %>
-				<%= f.submit "Delete Photo", class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this photo?' } %>
-			<% end %>
-		</p>
+		<div class="row">
+			<div class="col-lg-2 col-md-2"></div>
+			<div class="col-sm-12 col-md-9 col-lg-9">
+				<p>
+					<%= image_tag(@draft.photo.url) %>
+					<% if current_page?(action: 'edit', controller: 'drafts') %>
+						<%= f.submit "Delete Photo", class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this photo?' } %>
+					<% end %>
+				</p>
+			</div>
+		</div>
 	<% end %>
 
-	<p>
-		<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true' %>
-	</p>
-
-	<p>
-		<%= f.text_area :content, placeholder: 'Article content...', rows: '15' %>
-	</p>
-
-	<p>
-        <%= f.text_field :author_name, placeholder: 'Author name (optional)' %>
-    </p>
-
-	<%= f.label(:photo, 'Add Photo') %><br>
-	<div class="draft-photo-input">
-		<div class="wrapper">
-			<%= f.file_field :photo %>
+	<div class="row">
+		<div class="col-lg-2 col-md-2"></div>
+		<div class="col-sm-12 col-md-9 col-lg-9">
+			<p>
+				<%= f.text_field :title, placeholder: 'Title...', autofocus: 'true', hide_label: true %>
+			</p>
 		</div>
-		<%= image_tag('camera.png', class: 'camera-icon') %>
 	</div>
 
-	<p>
-		<br>
-		<%= f.submit "Update Draft", class: 'btn btn-primary' %>
-		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
-	</p>
+	<div class="row">
+		<div class="col-lg-2 col-md-2"></div>
+		<div class="col-sm-12 col-md-9 col-lg-9">
+			<p>
+				<%= f.text_area :content, placeholder: 'Article content...', rows: '15', hide_label: true %>
+			</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-2 col-md-2"></div>
+		<div class="col-sm-12 col-md-9 col-lg-9">
+			<p>
+		        <%= f.text_field :author_name, placeholder: 'Author name (optional)', hide_label: true %>
+		    </p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-2 col-md-2"></div>
+		<div class="col-sm-12 col-md-9 col-lg-9">
+			<%= f.label(:photo, 'Add Photo') %><br>
+			<div class="draft-photo-input">
+				<div class="wrapper">
+					<%= f.file_field :photo, hide_label: true %>
+				</div>
+				<span class="glyphicon glyphicon-camera camera-icon"></span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-lg-2 col-md-2"></div>
+		<div class="col-sm-12 col-md-9 col-lg-9">
+			<p>
+				<br>
+				<%= f.submit "Update Draft", class: 'btn btn-primary' %>
+				<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
+			</p>
+		</div>
+	</div>
 
 <% end %>
