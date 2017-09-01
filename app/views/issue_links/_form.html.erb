@@ -1,26 +1,33 @@
-<%= form_for @issue_link do |f| %>
-	<% if @issue_link.errors.any? %>
-		<div class="error_explanation">
-			<h2>
-				<%= pluralize(@issue_link.errors.count, "error") %> prohibited this article from being saved:
-			</h2>
-			<ul>
-				<% @issue_link.errors.full_messages.each do |msg| %>
-					<li><%= msg %></li>
-				<% end %>
-			</ul>
+<%= bootstrap_form_for @issue_link do |f| %>
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+			<% if @issue_link.errors.any? %>
+				<div class="error_explanation">
+					<h2>
+						<%= pluralize(@issue_link.errors.count, "error") %> prohibited this article from being saved:
+					</h2>
+					<ul>
+						<% @issue_link.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
 		</div>
-	<% end %>
+	</div>
 
-    <p>
-        <%= f.text_field :issue_link, placeholder: 'Link...' %>
-		<%= f.hidden_field :thumbnail_link, value: '' %>
-		<%= f.hidden_field :title, value: '' %>
-		<%= f.hidden_field :date, value: '' %>
-    </p>
+	<div class="row">
+		<div class="col-sm-12 col-md-12 col-lg-12">
+		    <p>
+		        <%= f.text_field :issue_link, placeholder: 'Link...', skip_label: true %>
+				<%= f.hidden_field :thumbnail_link, value: '', skip_label: true %>
+				<%= f.hidden_field :title, value: '', skip_label: true %>
+				<%= f.hidden_field :date, value: '', skip_label: true %>
+		    </p>
 
-	<p>
-		<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
-	</p>
-
+			<p>
+				<%= f.submit "Publish", class: 'btn btn-success', data: { confirm: 'Are you sure you want to publish?' } %>
+			</p>
+		</div>
+	</div>
 <% end %>
