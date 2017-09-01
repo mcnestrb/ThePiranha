@@ -1,21 +1,27 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: send("#{resource_name}_registration_path"), html: { method: :put }) do |f| %>
+<%= bootstrap_form_for(resource, as: resource_name, url: send("#{resource_name}_registration_path"), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :new_password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+  <div class="row">
+     <div class="field col-sm-12 col-md-3 col-lg-3">
+        <%= f.label :new_password %><br />
+        <%= f.password_field :password, autocomplete: "off", skip_label: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="row">
+     <div class="field col-sm-12 col-md-3 col-lg-3">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", skip_label: true %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+  <div class="row">
+     <div class="field col-sm-12 col-md-3 col-lg-3">
+        <%= f.label :current_password %><br />
+        <%= f.password_field :current_password, autocomplete: "off", skip_label: true %>
+    </div>
   </div>
 
   <div class="actions">
@@ -23,7 +29,5 @@
   </div>
 <% end %>
 <% if editor_signed_in? %>
-    <h3>Cancel my account</h3>
-
-    <p><%= button_to "Cancel my account", send("#{resource_name}_registration_path"), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p><%= button_to "Cancel my account", send("#{resource_name}_registration_path"), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
 <% end %>
