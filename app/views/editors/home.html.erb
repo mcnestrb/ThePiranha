@@ -1,8 +1,23 @@
-<h1>Editor logged in</h1>
-<%= link_to 'New Article', new_article_path %>
-<br><br>
-<%= link_to 'Drafts', drafts_path %>
-<br><br>
-<%= link_to 'New Archive Link', new_issue_link_path %>
-<br><br>
-<%= link_to 'Edit Profile', edit_editor_registration_path %>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="alert alert-info">
+            Editor logged in
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <%= link_to 'New Article', new_article_path %>
+            </li>
+            <li class="list-group-item">
+                <%= link_to 'Drafts', drafts_path %>
+            </li>
+            <li class="list-group-item">
+                <%= link_to 'New Archive Link', new_issue_link_path %>
+            </li>
+            <li class="list-group-item">
+                <%= link_to 'Edit Profile', edit_editor_registration_path %>
+            </li>
+        </ul>
+
+    </div>
+</div>

@@ -1,12 +1,12 @@
 <div class="draft-list">
 	<% unless @drafts.empty? %>
-		<% @drafts.each do |draft| %>
-			<div class="panel panel-default">
-				<div class="panel-body">
+		<ul class="list-group">
+			<% @drafts.each do |draft| %>
+				<li class="list-group-item">
 					<%= link_to draft.title, edit_draft_path(draft) %>
-				</div>
-			</div>
-		<% end %>
+				</li>
+			<% end %>
+		</ul>
 	<% else %>
 		<div class="panel panel-default">
 			<div class="panel-body">
