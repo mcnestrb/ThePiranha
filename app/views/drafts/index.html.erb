@@ -1,7 +1,17 @@
-<% unless @drafts.empty? %>
-	<% @drafts.each do |draft| %>
-		<h2><%= link_to draft.title, edit_draft_path(draft) %></h2>
+<div class="draft-list">
+	<% unless @drafts.empty? %>
+		<% @drafts.each do |draft| %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<%= link_to draft.title, edit_draft_path(draft) %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				No drafts
+			</div>
+		</div>
 	<% end %>
-<% else %>
-	<h1>No drafts</h1>
-<% end %>
+</div>
