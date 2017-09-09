@@ -22,17 +22,16 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-3 col-lg-3 article-meta-data">
+		<div class="col-md-1 col-lg-1 article-meta-data">
 			<% unless @article.author_name.nil? %>
 				<h3><%= @article.author_name %></h3>
 			<% end %>
 			<p><%= @article.created_at.strftime("%d/%m/%Y") %></p>
 		</div>
 		<% unless @article.photo.url.blank? %>
-			<div class="col-md-8 col-lg-8 article-photo">
+			<div class="col-md-7 col-lg-7 article-photo">
 				<%= image_tag @article.photo.url %>
 			</div>
-			<div class="col-md-1 col-lg-1"></div>
 		<% end %>
 	</div>
 
