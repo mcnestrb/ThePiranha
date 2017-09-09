@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
 
 	def show
     	@article = Article.find(params['id'])
+		@latest_articles = Article.all.where(featured: 0).order('created_at desc').limit(5)
+		@featured_articles = Article.where.not(featured: 0)
 		@article_views = @article.impressionist_count(:filter=>:session_hash)
 	end
 
