@@ -79,6 +79,10 @@
 .article-title
 	:margin-bottom 20px
 
+.article-content
+	:padding-bottom 30px
+	:border-bottom #CCCCCC solid 1px
+
 .article-content p
 	:margin-top 20px
 
@@ -112,6 +116,32 @@
 .latest-articles li img
 	:height 60px
 	:padding 5px
+
+.featured-articles
+	:margin-top 15px
+
+
+.featured-articles li
+	:height 75px
+	:list-style none
+	:float left
+	:margin-right 4%
+	:border-right #CCCCCC solid 1px
+	:padding-right 3%
+	@media screen and (max-width: 768px)
+		:border none
+		:float none
+		:height 100px
+
+.featured-articles li span
+	:height 0px
+	:vertical-align top
+	:font-family "Chapaza"
+	:font-size 1.2em
+
+.featured-articles li img
+	:margin-bottom 5px
+	:height 70px
 
 /*
  *		New Article page

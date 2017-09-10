@@ -35,25 +35,25 @@
 					<div class="col-md-8 col-lg-8 article-photo">
 						<%= image_tag @article.photo.url %>
 					</div>
-				<% end %>
-				<% unless @latest_articles.blank? %>
-					<div class="col-md-3 col-lg-3 latest-articles visible-md visible-lg">
-						<h4>Latest Articles</h4>
-						<ul>
-							<% @latest_articles.each do |article| %>
-								<%= link_to article_path(article) do %>
-									<li>
-										<% unless article.photo.url.blank? %>
-											<%= image_tag article.photo.url %>
-										<% end %>
-										<span>
-											<%= article.title %>
-										</span>
-									</li>
+					<% unless @latest_articles.blank? %>
+						<div class="col-md-3 col-lg-3 latest-articles visible-md visible-lg">
+							<h4>Latest Articles</h4>
+							<ul>
+								<% @latest_articles.each do |article| %>
+									<%= link_to article_path(article) do %>
+										<li>
+											<% unless article.photo.url.blank? %>
+												<%= image_tag article.photo.url %>
+											<% end %>
+											<span>
+												<%= article.title %>
+											</span>
+										</li>
+									<% end %>
 								<% end %>
-							<% end %>
-						</ul>
-					</div>
+							</ul>
+						</div>
+					<% end %>
 				<% end %>
 			</div>
 			<div class="row">
@@ -64,10 +64,71 @@
 						<div class="page-views">Page Views: <%= @article_views %></div>
 					<% end %>
 				</div>
+				<% if @article.photo.url.blank? %>
+					<% unless @latest_articles.blank? %>
+						<div class="col-md-3 col-lg-3 latest-articles visible-md visible-lg">
+							<h4>Latest Articles</h4>
+							<ul>
+								<% @latest_articles.each do |article| %>
+									<%= link_to article_path(article) do %>
+										<li>
+											<% unless article.photo.url.blank? %>
+												<%= image_tag article.photo.url %>
+											<% end %>
+											<span>
+												<%= article.title %>
+											</span>
+										</li>
+									<% end %>
+								<% end %>
+							</ul>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
+
+			<% unless @featured_articles.blank? %>
+				<div class="row featured-articles visible-md visible-lg">
+					<div class="col-lg-9 col-md-9">
+						<h4>Featured Articles</h4>
+						<ul>
+							<% @featured_articles.each do |feature| %>
+								<%= link_to article_path(feature) do %>
+									<li>
+										<% unless feature.photo.url.blank? %>
+											<%= image_tag feature.photo.url %>
+										<% end %>
+										<div>
+											<%= feature.title %>
+										</div>
+									</li>
+								<% end %>
+							<% end %>
+						</ul>
+					</div>
+				</div>
+			<% end %>
 		</div>
 	</div>
-	<div class="row featured-articles">
-
-	</div>
+	<% unless @featured_articles.blank? %>
+		<div class="row featured-articles visible-sm">
+			<div class="col-sm-12">
+				<h4>Featured Articles</h4>
+				<ul>
+					<% @featured_articles.each do |feature| %>
+						<%= link_to article_path(feature) do %>
+							<li>
+								<% unless feature.photo.url.blank? %>
+									<%= image_tag feature.photo.url %>
+								<% end %>
+								<div>
+									<%= feature.title %>
+								</div>
+							</li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
 </div>
