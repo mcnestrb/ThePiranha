@@ -57,7 +57,7 @@
 				<% end %>
 			</div>
 			<div class="row">
-				<div class="col-md-8 col-lg-8 col-sm-12 article-content">
+				<div class="col-md-8 col-lg-8 col-xs-12 article-content">
 		    		<%= simple_format(@article.content) %>
 					<%= social_share_button_tag(@article.title, :image => !@article.photo.url.blank? ? @article.photo.url : '') %>
 					<% if editor_signed_in? %>
@@ -111,8 +111,8 @@
 		</div>
 	</div>
 	<% unless @featured_articles.blank? %>
-		<div class="row featured-articles visible-sm">
-			<div class="col-sm-12">
+		<div class="row featured-articles visible-xs">
+			<div class="col-xs-12">
 				<h4>Featured Articles</h4>
 				<ul>
 					<% @featured_articles.each do |feature| %>

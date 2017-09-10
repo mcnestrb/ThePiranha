@@ -120,6 +120,9 @@
 .featured-articles
 	:margin-top 15px
 
+.featured-articles ul
+	@media screen and (max-width: 768px)
+		:padding 0
 
 .featured-articles li
 	:height 75px
@@ -129,9 +132,12 @@
 	:border-right #CCCCCC solid 1px
 	:padding-right 3%
 	@media screen and (max-width: 768px)
-		:border none
+		:border-right none
 		:float none
 		:height 100px
+		:padding-bottom 10px
+		:border-bottom #CCCCCC solid 1px
+		:margin-bottom 5px
 
 .featured-articles li span
 	:height 0px
