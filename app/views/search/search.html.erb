@@ -1,9 +1,57 @@
-<% if @articles.present? %>
-    <h2>Showing results for "<%= @search_term %>"</h2>
-    <% @articles.each do |article| %>
-        <h4><%= link_to article.title, article_path(article) %></h2>
-    <% end %>
-    <%= will_paginate @articles %>
-<% else %>
-    <h2>No results for the search term "<%= @search_term %>"</h2>
-<% end %>
+<div class="container search-page">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-xs-12">
+            <% if @articles.present? %>
+                <h3>Showing results for "<%= @search_term %>"</h3>
+                <% @articles.each do |article| %>
+                    <h4><%= link_to article.title, article_path(article) %></h2>
+                <% end %>
+                <%= will_paginate @articles %>
+            <% else %>
+                <h3>No results for the search term "<%= @search_term %>"</h3>
+            <% end %>
+        </div>
+
+        <% unless @latest_articles.blank? %>
+            <div class="col-md-3 col-lg-3 latest-articles visible-md visible-lg">
+                <h4>Latest Articles</h4>
+                <ul>
+                    <% @latest_articles.each do |article| %>
+                        <%= link_to article_path(article) do %>
+                            <li>
+                                <% unless article.photo.url.blank? %>
+                                    <%= image_tag article.photo.url %>
+                                <% end %>
+                                <span>
+                                    <%= article.title %>
+                                </span>
+                            </li>
+                        <% end %>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+    </div>
+
+    <% unless @featured_articles.blank? %>
+		<div class="row">
+			<div class="col-xs-12 col-md-8 col-lg-8 featured-articles">
+				<h4>Featured Articles</h4>
+				<ul>
+					<% @featured_articles.each do |feature| %>
+						<%= link_to article_path(feature) do %>
+							<li>
+								<% unless feature.photo.url.blank? %>
+									<%= image_tag feature.photo.url %>
+								<% end %>
+								<div>
+									<%= feature.title %>
+								</div>
+							</li>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	<% end %>
+</div>
