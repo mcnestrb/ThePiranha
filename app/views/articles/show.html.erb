@@ -28,39 +28,44 @@
 			<% end %>
 			<p><%= @article.created_at.strftime("%d/%m/%Y") %></p>
 		</div>
-		<% unless @article.photo.url.blank? %>
-			<div class="col-md-7 col-lg-7 article-photo">
-				<%= image_tag @article.photo.url %>
-			</div>
-		<% end %>
-	</div>
 
-
-	<div class="row">
-		<div class="col-md-offset-1 col-lg-offset-1 col-md-7 col-lg-7 col-sm-12 article-content">
-    	<%= simple_format(@article.content) %>
-			<%= social_share_button_tag(@article.title, :image => !@article.photo.url.blank? ? @article.photo.url : '') %>
-			<% if editor_signed_in? %>
-				<div class="page-views">Page Views: <%= @article_views %></div>
-			<% end %>
-		</div>
-
-		<% unless @latest_articles.blank? %>
-			<div class="col-md-4 col-lg-4 latest-articles visible-md visible-lg">
-				<ul>
-					<% @latest_articles.each do |article| %>
-						<%= link_to article_path(article) do %>
-							<li>
-								<% unless article.photo.url.blank? %>
-									<%= image_tag article.photo.url %>
+		<div class="col-md-11 col-lg-11">
+			<div class="row">
+				<% unless @article.photo.url.blank? %>
+					<div class="col-md-8 col-lg-8 article-photo">
+						<%= image_tag @article.photo.url %>
+					</div>
+				<% end %>
+				<% unless @latest_articles.blank? %>
+					<div class="col-md-3 col-lg-3 latest-articles visible-md visible-lg">
+						<h4>Latest Articles</h4>
+						<ul>
+							<% @latest_articles.each do |article| %>
+								<%= link_to article_path(article) do %>
+									<li>
+										<% unless article.photo.url.blank? %>
+											<%= image_tag article.photo.url %>
+										<% end %>
+										<span>
+											<%= article.title %>
+										</span>
+									</li>
 								<% end %>
-								<%= article.title %>
-							</li>
-						<% end %>
-					<% end %>
-				</ul>
+							<% end %>
+						</ul>
+					</div>
+				<% end %>
 			</div>
-		<% end %>
+			<div class="row">
+				<div class="col-md-8 col-lg-8 col-sm-12 article-content">
+		    		<%= simple_format(@article.content) %>
+					<%= social_share_button_tag(@article.title, :image => !@article.photo.url.blank? ? @article.photo.url : '') %>
+					<% if editor_signed_in? %>
+						<div class="page-views">Page Views: <%= @article_views %></div>
+					<% end %>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="row featured-articles">
 
