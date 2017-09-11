@@ -6,5 +6,4 @@ ready = ->
     $('.latest-articles ul li').last().css 'border', 'none'
     $('.article-list li').last().css 'border', 'none'
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
+jQuery ready
