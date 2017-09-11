@@ -65,12 +65,45 @@
 	:color #202020
 	:text_decoration none
 
-.article-in-list
-	:color #202020
+.article-list-title
+	:color #404040
 	:text_decoration none
+	:vertical-align top
+	:font-family "Chapaza"
+	:font-size 1.8em
+	@media screen and (max-width: 768px)
+		:font-size 1.2em
+
+.article-list-title:hover
+	:color black
+
+.article-in-list
+	:opacity 1
+	:height 115px
+	:padding-bottom 10px
+	:border-bottom #CCCCCC solid 1px
+	:margin-top 5px
+	@media screen and (max-width: 768px)
+		:height 60px
 
 .article-in-list:hover
-	:color black
+	:opacity 0.65
+
+.article-list
+	:padding-left 0px
+	:list-style none
+
+.article-list-photo
+	:width 30%
+	:height 100px
+	:overflow hidden
+	:display inline-block
+	@media screen and (max-width: 768px)
+		:height 60px
+
+.article-list-photo img
+	:max-width 100%
+
 
 /*
  *		Article show page

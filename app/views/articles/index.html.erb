@@ -58,23 +58,55 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-1 col-lg-1"></div>
-		<div class="col-md-8 col-lg-8">
-			<div class="mobile-features visible-xs">
+		<div class="col-md-offset-1 col-lg-offset-1 col-md-8 col-lg-8">
+			<ul class="article-list">
 				<% unless @featured_2.blank? %>
-					<h2><%= link_to @featured_2.title, article_path(@featured_2), {:class => "article-in-list"} %></h2>
+					<%= link_to article_path(@featured_2), :class => "visible-xs" do %>
+						<li class="article-in-list">
+							<% unless @featured_2.photo.url.blank? %>
+								<div class="article-list-photo">
+									<%= image_tag(@featured_2.photo.url) %>
+								</div>
+							<% end %>
+							<span class="article-list-title">
+								<%= @featured_2.title %>
+							</span>
+						</li>
+					<% end %>
 				<% end %>
 				<% unless @featured_3.blank? %>
-					<h2><%= link_to @featured_3.title, article_path(@featured_3), {:class => "article-in-list"} %></h2>
+					<%= link_to article_path(@featured_3), :class => "visible-xs" do %>
+						<li class="article-in-list">
+							<% unless @featured_3.photo.url.blank? %>
+								<div class="article-list-photo">
+									<%= image_tag(@featured_3.photo.url) %>
+								</div>
+							<% end %>
+							<span class="article-list-title">
+								<%= @featured_3.title %>
+							</span>
+						</li>
+					<% end %>
 				<% end %>
-			</div>
-			<% unless @articles.empty? || !@articles %>
-				<% @articles.each do |article| %>
-					<h2><%= link_to article.title, article_path(article), {:class => "article-in-list"} %></h2>
+				<% unless @articles.empty? || !@articles %>
+					<% @articles.each do |article| %>
+						<%= link_to article_path(article) do %>
+							<li class="article-in-list">
+								<% unless article.photo.url.blank? %>
+									<div class="article-list-photo">
+										<%= image_tag(article.photo.url) %>
+									</div>
+								<% end %>
+								<span class="article-list-title">
+									<%= article.title %>
+								</span>
+							</li>
+						<% end %>
+					<% end %>
+				<% else %>
+					<h3>No articles</h3>
 				<% end %>
-			<% else %>
-				<h3>No articles</h3>
-			<% end %>
+			</ul>
 		</div>
 	</div>
 
