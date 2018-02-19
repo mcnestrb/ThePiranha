@@ -27,10 +27,7 @@
 				<div class="row">
 					<div class="col-md-12 col-lg-12 visible-lg visible-md desktop-header">
 						<ul>
-							<% if !(admin_signed_in? || editor_signed_in?) %>
-								<li id="admin-login"><%= link_to 'ADMIN LOGIN', new_admin_session_path %></li>
-								<li id="editor-login"><%= link_to 'EDITOR LOGIN', new_editor_session_path %></li>
-							<% elsif admin_signed_in? %>
+							<% if admin_signed_in? %>
 								<li id="log-out">
 									<%= link_to destroy_admin_session_path, :method => :delete do %>
 										<div class="glyphicon glyphicon-off"></div>
