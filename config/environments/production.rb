@@ -63,7 +63,7 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => 'piranha-test.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'thepiranha.piranha.ie' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -93,4 +93,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-Rails.application.routes.default_url_options[:host] = 'piranha-test.herokuapp.com'
+Rails.application.routes.default_url_options[:host] = 'thepiranha.piranha.ie'
