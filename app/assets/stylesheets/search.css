@@ -1,0 +1,38 @@
+/* Place all the styles related to the Search controller here.
+ * They will automatically be included in application.css.
+ * You can use Sass (SCSS) here: http://sass-lang.com/
+ */
+
+.search-page .latest-articles {
+    margin-top: 20px;
+    padding-left: 2%;
+    border-left: #CCCCCC solid 1px;
+}
+
+.search-page .latest-articles ul {
+    padding-left: 0px;
+}
+
+.search-page .latest-articles li {
+    height: 75px;
+    list-style: none;
+    border-bottom: #CCCCCC solid 1px;
+}
+
+.search-page .latest-articles li span {
+    height: 60px;
+    vertical-align: top;
+    font-family: "Chapaza";
+    font-size: 1.2em;
+}
+
+.search-page .latest-articles li img {
+    height: 60px;
+    padding: 5px;
+}
+
+.search-page .featured-articles {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: #CCCCCC solid 1px;
+}
