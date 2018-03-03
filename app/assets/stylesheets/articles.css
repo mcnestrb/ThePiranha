@@ -184,13 +184,11 @@
 }
 
 .latest-articles li {
-	height: 75px;
 	list-style: none;
 	border-bottom: #CCCCCC solid 1px;
 }
 
-.latest-articles li span {
-	height: 60px;
+.latest-articles li div {
 	vertical-align: top;
 	font-family: "Chapaza";
 	font-size: 1.2em;
