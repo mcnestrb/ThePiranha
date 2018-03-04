@@ -25,7 +25,7 @@
 
 .latest-issue-title {
 	color: black;
-	text_decoration: none;
+	text-decoration: none;
 }
 
 .features {
@@ -59,12 +59,12 @@
 
 .headline-title {
 	color: #202020;
-	text_decoration: none;
+	text-decoration: none;
 }
 
 .headline-text {
 	color: #202020;
-	text_decoration: none;
+	text-decoration: none;
 }
 
 .featured-2 {
@@ -75,7 +75,7 @@
 	width: 100%;
 	border-bottom: solid black 1px;
 	color: #202020;
-	text_decoration: none;
+	text-decoration: none;
 }
 
 .featured-2:hover {
@@ -88,7 +88,7 @@
 	height: 150px;
 	width: 100%;
 	color: #202020;
-	text_decoration: none;
+	text-decoration: none;
 }
 
 .featured-3:hover {
